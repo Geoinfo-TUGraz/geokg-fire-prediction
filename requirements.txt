@@ -1,2 +1,10 @@
 python-dotenv
 requests
+numpy
+pandas
+shapely 
+fiona 
+pyproj
+geopandas
+rdflib
+tqdm
