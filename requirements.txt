@@ -7,4 +7,3 @@ fiona
 pyproj
 geopandas
 rdflib
-tqdm
