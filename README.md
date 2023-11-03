@@ -41,9 +41,36 @@ The following image shows the fire cells, and their neighboring pixels.
   <img src="images/fire_cells.png" width="350" title="Fire cells and their neighbors. Green pixels represent non-fire cells, red pixels fire cells and grey pixels don't have a fire attribute and just sever for identifying the neighbors of the fire cells">
 </p>
 
+The following turtle snippet, represents the structure of our final RDF graph.
+
+```
+fire_austria:Cell_1411 a fire_austria:Cell ;
+    fire_austria:hasNeighbor fire_austria:Cell_1403,
+        fire_austria:Cell_1404,
+        fire_austria:Cell_1405,
+        fire_austria:Cell_1410,
+        fire_austria:Cell_1412,
+        fire_austria:Cell_1417,
+        fire_austria:Cell_1418,
+        fire_austria:Cell_1419 ;
+    geo:hasGeometry fire_austria:Geom_Cell_1411 .
+
+fire_austria:Cell_1412 a fire_austria:Cell ;
+    fire_austria:date "2007-04-14"^^xsd:date ;
+    fire_austria:fire true ;
+    fire_austria:hasNeighbor fire_austria:Cell_1404,
+        fire_austria:Cell_1405,
+        fire_austria:Cell_1406,
+        fire_austria:Cell_1411,
+        fire_austria:Cell_1413,
+        fire_austria:Cell_1418,
+        fire_austria:Cell_1419,
+        fire_austria:Cell_1420 ;
+    geo:hasGeometry fire_austria:Geom_Cell_1412 .
+```
+
 ### TODOs
 
-- Refactoring and Cleanup of _transform_fire_data_to_rdf.py_ file
 - Upload of fire data turtle file (subset) to GraphDB
 - Upload of worldkg graph subset to GraphDB
 - Create connections between fire cells and osm entities
