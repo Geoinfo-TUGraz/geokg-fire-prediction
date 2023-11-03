@@ -48,6 +48,7 @@ def upload_data(path_to_ttl_file: str):
 
 if __name__ == "__main__":
 
+    '''
     # execute query
     query = """
     SELECT ?s ?p ?o 
@@ -58,3 +59,4 @@ if __name__ == "__main__":
 
     result = execute_query(query)
     print(result)
+    '''

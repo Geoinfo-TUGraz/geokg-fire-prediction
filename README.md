@@ -38,7 +38,7 @@ The code of these steps can be viewed [here](src/knowledge_graph/transform_fire_
 The following image shows the fire cells, and their neighboring pixels.
 
 <p align="center">
-  <img src="images/fire_cells.png" width="350" title="Fire cells and their neighbors. Green pixels represent non-fire cells, red pixels fire cells and grey pixels don't have a fire attribute and just sever for identifying the neighbors of the fire cells">
+  <img src="images/fire_cells.png" width="600" title="Fire cells and their neighbors. Green pixels represent non-fire cells, red pixels fire cells and grey pixels don't have a fire attribute and just sever for identifying the neighbors of the fire cells">
 </p>
 
 The following turtle snippet, represents the structure of our final RDF graph.
