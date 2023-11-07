@@ -69,6 +69,24 @@ fire_austria:Cell_1412 a fire_austria:Cell ;
     geo:hasGeometry fire_austria:Geom_Cell_1412 .
 ```
 
+#### Transform OSM-Snapshot to RDF
+
+Our final Knowledge-Graph will consist of two datasets the previously transformed FFID and a snapshot of the OSM.
+Therefore the OSM snapshot must be transformed into triplets. The following repostory provides a guide as well as the code 
+for transforming OSM-Data to RDF-Triplets:
+https://github.com/alishiba14/WorldKG-Knowledge-Graph/tree/main
+Though not all of the steps are required as the code is already contained in the OSM_to_RDF folder of this repository.
+
+- Open a terminal and switch to the OSM_to_RDF directory
+- Get a snapshot of the OSM in oms.pbf format. 
+  - Download the snapshot of a whole country from geofabrik: https://download.geofabrik.de/
+  - Extract a more detailed snapshot from an existing osm.pbf file using osmosis command line tool. 
+    -  Instructions on installing Osmosis can be found on: https://wiki.openstreetmap.org/wiki/Osmosis
+    - Once osmosis is installed use the createOSMSnapshot.sh script to extract the subset from your osm.pbf file (Adjust data paths as suited)
+  - Then use the createTriples.sh file to create a python environment and run the createTriples.py script to generate the worldKG snapshot as .ttl file.
+  - Upload this .ttl-file to your GraphDB
+
+
 ### TODOs
 
 - Upload of fire data turtle file (subset) to GraphDB
