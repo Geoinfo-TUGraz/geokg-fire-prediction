@@ -51,15 +51,20 @@ if __name__ == "__main__":
     path_to_fire_cells_subset = r"../../data/fire_data_subset/fire_cells.ttl"
     upload_data(path_to_fire_cells_subset)
 
-    '''
     # execute query
     query = """
-    SELECT ?s ?p ?o 
+    PREFIX fire_austria: <http://example.org/fire_austria_ns#>
+    PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+    SELECT ?neighb ?geom
     WHERE {
-        ?s ?p ?o
-    } LIMIT 10
+        fire_austria:Cell_15000 a fire_austria:Cell ;
+                            fire_austria:hasNeighbor ?neighb .
+        ?neighb geo:hasGeometry ?geom_ent .
+        ?geom_ent geo:asWKT ?geom .
+    }
     """
 
     result = execute_query(query)
     print(result)
-    '''
+
+
