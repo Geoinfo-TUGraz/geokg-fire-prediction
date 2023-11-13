@@ -10,7 +10,7 @@ GRAPHDB_USERNAME = os.getenv("GRAPHDB_USERNAME")
 GRAPHDB_PASSWORD = os.getenv("GRAPHDB_PASSWORD")
 
 
-def execute_query(query: str):
+def execute_query(query: str) -> dict:
     """query GraphDB reporsitory"""
 
     url = f"{GRAPHDB_BASE_URL}/repositories/{REPO_ID}"
@@ -26,7 +26,7 @@ def execute_query(query: str):
     return response.json()
 
 
-def upload_data(path_to_ttl_file: str):
+def upload_data(path_to_ttl_file: str) -> None:
     """upload ttl file to default graph in repository"""
 
     url = f"{GRAPHDB_BASE_URL}/repositories/{REPO_ID}/rdf-graphs/service?default"
@@ -47,6 +47,9 @@ def upload_data(path_to_ttl_file: str):
 
 
 if __name__ == "__main__":
+
+    path_to_fire_cells_subset = r"../../data/fire_data_subset/fire_cells.ttl"
+    upload_data(path_to_fire_cells_subset)
 
     '''
     # execute query
