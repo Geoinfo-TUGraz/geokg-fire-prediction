@@ -47,16 +47,20 @@ def upload_data(path_to_ttl_file: str):
 
 
 if __name__ == "__main__":
-
-    '''
-    # execute query
-    query = """
-    SELECT ?s ?p ?o 
+   # execute query
+   query = """
+   PREFIX fire_austria: <http://example.org/fire_austria_ns#>
+    PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+    SELECT ?neighb ?geom
     WHERE {
-        ?s ?p ?o
-    } LIMIT 10
-    """
+        fire_austria:Cell_15000 a fire_austria:Cell ;
+                            fire_austria:hasNeighbor ?neighb .
+        ?neighb geo:hasGeometry ?geom_ent .
+        ?geom_ent geo:asWKT ?geom .
+    }
+   """
 
-    result = execute_query(query)
-    print(result)
-    '''
+   result = execute_query(query)
+   print(result)
+
+
